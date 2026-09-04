@@ -66,7 +66,7 @@ public class Escalonador {
             if (atual.isFinalizado()) {
                 quantumAtual = 0;
             } else if (quantumAtual >= quantum) {
-                System.out.printf("  [!] PREEMPÇÃO: Quantum (%d) expirado para PID %d. Reenfileirando.\n", 
+                System.out.printf("  [!] PREEMPCAO: Quantum (%d) expirado para PID %d. Reenfileirando.\n", 
                     quantum, atual.getId());
                 filaRoundRobin.add(atual);
                 quantumAtual = 0;

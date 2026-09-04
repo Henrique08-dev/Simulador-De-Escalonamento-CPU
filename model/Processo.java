@@ -42,15 +42,15 @@ public class Processo {
     public void imprimirHistorico() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < historicoExecucao.size(); i++) {
-            sb.append(String.format("Instrução %d→Ciclo %d", i + 1, historicoExecucao.get(i)));
+            sb.append(String.format("Instrucao %d: Ciclo %d", i + 1, historicoExecucao.get(i)));
             if (i < historicoExecucao.size() - 1) sb.append(", ");
         }
-        System.out.printf("  [HISTÓRICO PID %d] %s\n", id, sb.toString());
+        System.out.printf("  [HISTORICO PID %d] %s\n", id, sb.toString());
     }
 
     @Override
     public String toString() {
-        return String.format("[PID: %d | Instruções: %d/%d]", 
+        return String.format("[PID: %d | Instrucoes: %d/%d]", 
             id, quantidadeInstrucoes, instrucoesTotais);
     }
 }

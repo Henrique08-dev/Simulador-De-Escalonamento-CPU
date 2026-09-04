@@ -16,7 +16,9 @@ public class CPU implements Runnable {
         Processo processoAtual = null;
         long cicloClock = 1;
 
-        System.out.println("\n=== INICIANDO SIMULAÇÃO ===");
+        System.out.println("\n========================================");
+        System.out.println("     INICIANDO SIMULACAO CONTROLADA");
+        System.out.println("========================================");
 
         while (escalonador.possuiProcessos() || processoAtual != null) {
             System.out.printf("\n[CICLO %d]\n", cicloClock);
@@ -26,7 +28,7 @@ public class CPU implements Runnable {
             if (processoAtual != null) {
 
                 processoAtual.registrarExecucao((int) cicloClock);
-                System.out.printf("  CPU executando PID %d | Restam: %d instruções\n", 
+                System.out.printf("  CPU executando PID %d | Restam: %d instrucoes\n", 
                         processoAtual.getId(), processoAtual.getQuantidadeInstrucoes());
 
                 if (processoAtual.isFinalizado()) {
@@ -35,7 +37,7 @@ public class CPU implements Runnable {
                     processoAtual = null;
                 }
             } else {
-                System.out.println("  CPU em estado ocioso — aguardando novos processos.");
+                System.out.println("  CPU em estado ocioso, aguardando novos processos.");
             }
 
             cicloClock++;
@@ -47,6 +49,8 @@ public class CPU implements Runnable {
             }
         }
 
-        System.out.println("\n=== CPU DESLIGADA: Todos os processos finalizados ===");
+        System.out.println("\n========================================");
+        System.out.println("           CPU DESLIGADA");
+        System.out.println("========================================");
     }
 }

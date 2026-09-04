@@ -13,7 +13,9 @@ public class SimuladorController {
         GeradorDeProcessos gerador = new GeradorDeProcessos();
         Escalonador escalonador = new Escalonador(algoritmo, quantum, gerador);
 
-        System.out.println("=== Preparando Ambiente ===");
+        System.out.println("========================================");
+        System.out.println("       PREPARANDO AMBIENTE");
+        System.out.println("========================================");
         for (int i = 0; i < cargaInicial; i++) {
             escalonador.adicionarProcesso(gerador.gerarProcesso());
         }
@@ -28,6 +30,8 @@ public class SimuladorController {
             e.printStackTrace();
         }
 
-        System.out.println("\n=== Simulação Encerrada ===");
+        System.out.println("\n========================================");
+        System.out.println("   SIMULACAO ENCERRADA PELO CONTROLADOR");
+        System.out.println("========================================");
     }
 }
