@@ -28,6 +28,8 @@ public class Processo {
         return instrucoesTotais;
     }
 
+    // Cada chamada representa 1 ciclo de CPU: registra o ciclo e executa 1
+    // instrução do processo
     public void registrarExecucao(int cicloClock) {
         if (this.quantidadeInstrucoes > 0) {
             this.historicoExecucao.add(cicloClock);
@@ -35,22 +37,25 @@ public class Processo {
         }
     }
 
+    // O processo termina quando não possui mais instruções para executar
     public boolean isFinalizado() {
         return this.quantidadeInstrucoes == 0;
     }
 
+    // Mostra em quais ciclos de clock cada instrução do processo foi executada
     public void imprimirHistorico() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < historicoExecucao.size(); i++) {
             sb.append(String.format("Instrucao %d: Ciclo %d", i + 1, historicoExecucao.get(i)));
-            if (i < historicoExecucao.size() - 1) sb.append(", ");
+            if (i < historicoExecucao.size() - 1)
+                sb.append(", ");
         }
         System.out.printf("  [HISTORICO PID %d] %s\n", id, sb.toString());
     }
 
     @Override
     public String toString() {
-        return String.format("[PID: %d | Instrucoes: %d/%d]", 
-            id, quantidadeInstrucoes, instrucoesTotais);
+        return String.format("[PID: %d | Instrucoes: %d/%d]",
+                id, quantidadeInstrucoes, instrucoesTotais);
     }
 }

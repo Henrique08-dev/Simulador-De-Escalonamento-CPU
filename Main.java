@@ -5,11 +5,11 @@ public class Main {
     public static void main(String[] args) {
         SimuladorController controller = new SimuladorController();
 
+        // Configuração da simulação: algoritmo, quantum, tempo de cada clock e carga inicial
         controller.iniciarSimulacao(
-            TipoAlgoritmo.SJF, 
-            2,          
-            1000,        
-            2          
-        );
+                TipoAlgoritmo.SJF,
+                2,
+                1000,
+                2);
     }
 }
