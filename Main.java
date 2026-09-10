@@ -7,7 +7,7 @@ public class Main {
 
         // Configuração da simulação: algoritmo, quantum, tempo de cada clock e carga inicial
         controller.iniciarSimulacao(
-                TipoAlgoritmo.SJF,
+                TipoAlgoritmo.ROUND_ROBIN,
                 2,
                 1000,
                 2);
